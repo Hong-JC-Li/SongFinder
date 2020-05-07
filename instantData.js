@@ -16,27 +16,39 @@ const authority = 'https://financialmodelingprep.com'
    // ? 'badge badge-success'
    // : 'badge badge-danger'
    
+    const column = document.createElement('div');
+   
+    
     const html = `
-    <div>
+    <div class="col">
       <div class="index-card" >
-      <h5 class="card-title index-title"> ${index.name} </h5>
-      <p class="index-price">${Math.round(index.price)} </p>  
-      <p class="index-change">
+        <h5 class="card-title index-title"> ${index.name} </h5>
+        <p class="index-price">${Math.round(index.price)} </p>  
+        <p class="index-change">
         <span class="badge badge-success" // TODO: change badge color based on the change.
           ${Math.round(index.price)} (${Math.round(index.changesPercentage)})% 
         </span>
-      </p>
+        </p>
       </div>
     </div>`;
+   
+   
  };
  
 // This is an Immediately invoked function. No need to call it.
 (async () => {
   
+  const indexes = await getIndexes();
   
-  const data = await getIndexes();
-  const row = document.querySelector('.row');
+  indexes.forEach((index) => {
+    const indexParent= document.querySelector('.row');
+    const indexCard = renderCard(index);
+    
+    indexParent.appendChild(indexCard);
+    
+    
+    
+  })
   
-  console.log(data);
   
 })();
