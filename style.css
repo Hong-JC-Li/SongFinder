@@ -1,3 +1,25 @@
-.SongTitle{
-  text-align: center;
+body {
+  background-color: #1a1a1a!important;
+  color: white!important;
+}
+
+.index-card {
+  padding: 1rem;
+  margin: .25rem;
+  background-color: #242424;  
+}
+
+.index-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.index-price {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.index-change {
+  font-weight: bold;
+  font-size: 1.2rem;
 }

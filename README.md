@@ -1,4 +1,22 @@
-# SongFinder
-A website that takes in information about a song and outputs the song name, along with other information.
+# Stock Market Watchlist
+
 # Team Name
+Undecided
+
 # Contributors
+Eli, Joshua, Hong
+
+# Features
+- 
+
+# To Dos
+- 
+- Add placeholder card for user input
+- Change hardcoded data
+- Improve layout
+- Add light mode
+
+
+# Done: 
+- http helper to fetch indexes
+- render function to display indexes
