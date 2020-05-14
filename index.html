@@ -1,0 +1,48 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- This is where the indexes will be rendered. -->
+    <div class="row"></div>
+    
+    <!-- This is where the stocks will be rendered along with the search -->
+    
+    <div class="container row">
+      <div class="col-10">
+        <div class="stock-card row">
+
+            <!-- Company Info-->
+            <div class="col-8">
+              <p class="stock-title">Waste Management, Inc.</p>
+              <p class="stock-symbol"> WM </p>
+            </div>
+            <!-- Pricing Info -->
+            <div class="col-3"> 
+              <h1 class="stock-price">96.52</h1>
+              <p class="stock-change"> -1.79</p>
+            </div>
+            
+            <div class="col-1">
+              <span class="badge badge-danger">X</span>
+            </div>
+          </div>
+      </div>
+      
+      <div class="col-2">
+          <input class = "inputfile" placeholder = "Type a business...">
+          <button class = "inputbutton">Search</button>
+          <p class = "output">Results:</p>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="stock_market.js"></script>
+</body>
