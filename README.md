@@ -1,5 +1,10 @@
 # Stock Market Watchlist
 
+# TODO:
+- Request single stock
+- Store single stock
+- display single stock data
+
 # Team Name
 Undecided
 

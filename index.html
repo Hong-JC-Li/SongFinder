@@ -1,61 +1,48 @@
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
 </head>
 <body>
-  <h1 class = "CompanyName">Stock Market</h1>
-  <input class = "inputfile" placeholder = "Type a business...">
-  <!--
-    Hong, let's add a bootstrap class to this button to make it look Bootstrap-y
-    https://getbootstrap.com/docs/4.4/components/buttons/  
-  -->
-  <button class = "inputbutton">Search</button>
-  <p class = "output">Results:</p>
-  
-  
-  
+
   <div class="container">
-    <div class="row">
-      
-      <div class="col">
-        <div class="index-card" >
-            <h5 class="card-title index-title"> Dow Jones</h5>
-            <p class="index-price">23,664.64</p>
-            <p class="index-change"><span class="badge badge-danger">−218.45 (0.91%)</span></p>
-        </div>
+    
+    <!-- This is where the indexes will be rendered. -->
+    <div class="row"></div>
+    
+    <!-- This is where the stocks will be rendered along with the search -->
+    
+    <div class="container row">
+      <div class="col-10">
+        <div class="stock-card row">
+
+            <!-- Company Info-->
+            <div class="col-8">
+              <p class="stock-title">Waste Management, Inc.</p>
+              <p class="stock-symbol"> WM </p>
+            </div>
+            <!-- Pricing Info -->
+            <div class="col-3"> 
+              <h1 class="stock-price">96.52</h1>
+              <p class="stock-change"> -1.79</p>
+            </div>
+            
+            <div class="col-1">
+              <span class="badge badge-danger">X</span>
+            </div>
+          </div>
       </div>
       
-      <div class="col">
-        <div class="index-card">
-            <h5 class="card-title index-title">  S&P 500 Index </h5>
-            <p class="index-price">2,848.42</p>
-            <p class="index-change"><span class="badge badge-danger"> −20.02 (0.70%)</span></p>
-        </div>
+      <div class="col-2">
+          <input class = "inputfile" placeholder = "Type a business...">
+          <button class = "inputbutton">Search</button>
+          <p class = "output">Results:</p>
       </div>
-      
-      <div class="col">
-        <div class="index-card">
-            <h5 class="card-title index-title"> Nasdaq  </h5>
-            <p class="index-price">8,854.39</p>
-            <p class="index-change"><span class="badge badge-success"> +45.27 (0.51%)</span></p>
-        </div>
-      </div>
-      
-      <div class="col">
-        <div class="index-card">
-            <h5 class="card-title index-title">VIX </h5>
-            <p class="index-price">34.12</p>
-            <p class="index-change"><span class="badge badge-success"> +0.51 (1.52%)</span></p>
-        </div>
-      </div>
-      
     </div>
+    
   </div>
   
   
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="instantData.js"></script>
   <script src="stock_market.js"></script>
 </body>
