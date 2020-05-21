@@ -21,7 +21,7 @@ const searchCard = (information) => {
     <div class="col-4"> 
         <h1 class="stock-price">${information.profile.price}</h1>
         <p class="index-change mt-3">
-          <span class="badge ${ information.profile.changes < 0 ? 'badge-danger' : 'badge-success'}"> ${information.profile.changes } ${information.profile.changesPercentage }%</span>
+          <span class="badge ${ information.profile.changes < 0 ? 'badge-danger' : 'badge-success'}"> ${information.profile.changes } ${information.profile.changesPercentage }</span>
         </p>
     </div>
 
