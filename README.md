@@ -1,27 +1,24 @@
 # Stock Market Watchlist
 
-# TODO:
-- Request single stock
-- Store single stock
-- display single stock data
 
 # Team Name
-Undecided
+Stock Market Watchlist
 
 # Contributors
 Eli, Joshua, Hong
 
 # Features
-- 
+- User is able to search specific stocks
+- User is able to maintain previous stock searches
+- Constant updates on Dow Jones, Nasdaq, and more
 
 # To Dos
-- 
-- Add placeholder card for user input
-- Change hardcoded data
 - Improve layout
 - Add light mode
+- Store single stock
+- Change css for user input card
 
-
-# Done: 
+# Done
 - http helper to fetch indexes
 - render function to display indexes
+

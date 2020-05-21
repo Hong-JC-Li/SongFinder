@@ -1,71 +1,61 @@
-//For a specific company, input
-$(".inputbutton").click(function(){
-  let specificCompany = $(".inputfile").val() //AAPL enters
-  fetch("https://financialmodelingprep.com/api/v3/company/profile/"+specificCompany)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    var fullCard = cardDetails(data);
-    $(".stock-card").append(fullCard);
+const authority = 'https://financialmodelingprep.com';
+
+const apiKeyOne = '0f487b6e8f26cef67a2ebe1fd50b893f'; // not working
+const apiKeyTwo = 'e40a47d9dbd4cacd7ee514201122fb40'; // working
+const apiKey = apiKeyTwo;
+
+// Search card render.
+const searchCard = (information) => {
+    
+  const cardWrapper = document.createElement('div');
+  cardWrapper.classList.add('row');
+  cardWrapper.classList.add('stock-card');
+
+  cardWrapper.innerHTML = `
+
+    <div class="col-6">
+        <p class="stock-title">${information.profile.companyName}</p>
+        <p class="stock-symbol">${information.symbol}</p>
+    </div>
+          
+    <div class="col-4"> 
+        <h1 class="stock-price">${information.profile.price}</h1>
+        <p class="index-change mt-3">
+          <span class="badge ${ information.profile.changes < 0 ? 'badge-danger' : 'badge-success'}"> ${information.profile.changes } ${information.profile.changesPercentage }%</span>
+        </p>
+    </div>
+
+    <div class="col-2"> 
+        <img src="${information.profile.image}" class="ml-4 card-img">
+    </div>`;
+  
+  return cardWrapper;
+};
+
+// Search.
+$(".inputbutton").click(() => {
+  
+  const ticketSymbol = $(".inputfile").val();
+  const url = `https://financialmodelingprep.com/api/v3/company/profile/${ticketSymbol}?apikey=${apiKey}`;
+  
+  console.log(url);
+    
+  fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+        
+    const singleStockCard = searchCard(data);
+    const stockCards = document.querySelector('.stock-cards');
+    
+    stockCards.appendChild(singleStockCard);
   });
 });
   
-function cardDetails(information) {
-    let actualName = information.profile.companyName;
-    let Price = information.profile.price;
-    let stockChange = information.profile.changes;
-    let percentage = information.profile.changesPercentage;
 
-    return`
-        <div class="stock-card row">
-          <div class="user-input-stock">
-            <div class = "col-8">
-              <p class="stock-name">${actualName}</p>
-            </div>
-            <div class = "col-4">
-              <h1 class="stock-cost">${Price}</p>
-              <p class="stock-change">${stockChange}</p>
-            </div>
-          </div>
-        </div>`;
-  
-}
-// <p class="percent-of-stock">${percentage}</p>
-  //reference
-  // <div class="stock-card row">
-  //           <!-- Company Info-->
-  //           <div class="col-8">
-  //             <p class="stock-title">Waste Management, Inc.</p>
-  //             <p class="stock-symbol"> WM </p>
-  //           </div>
-  //           <!-- Pricing Info -->
-  //           <div class="col-4"> 
-  //             <h1 class="stock-price">96.52</h1>
-  //             <p class="stock-change"> -1.79</p>
-  //           </div>
-  //         </div>
-//TODO: Add tags or create a new placeholder card for userinput
-
-
-
-
-
-
-
-
-
-
-
-
-// Indexes. 
-const authority = 'https://financialmodelingprep.com';
-
-// This function will fetch the indexes. - what a vague explanation.
+// This function will fetch the indexes.
  const getIndexes = async () => {
-  const response = await fetch(`${authority}/api/v3/quote/^DJI,^GSPC,^IXIC,^VIX`);
-  const data =  await response.json();
-   
+  const response = await fetch(`${authority}/api/v3/quote/^DJI,^GSPC,^IXIC,^VIX?apikey=${apiKey}`);
+  const data =  response.json();
   return data;
 };
 
